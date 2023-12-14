@@ -1,0 +1,51 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: Tahoma;
+  font-size: 16px;
+  padding-top: 150px;
+  background-color: whitesmoke;
+}
+form {
+  width: 60vw;
+  max-width: 40%;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+fieldset {
+  padding: 20px;
+  background-color: white;
+}
+
+img{
+  border-bottom:solid;
+  border-color: grey;
+  border-width: 2px;
+}
+
+h4{
+  color: grey;
+}
+
+.AR_button {
+  background-color: #008ECE;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.AR_button:hover {
+  background-color: #000080;
+}
+
+a:link,
+a:visited {
+  color: white;
+  text-decoration: none; /* Remove underline */
+}

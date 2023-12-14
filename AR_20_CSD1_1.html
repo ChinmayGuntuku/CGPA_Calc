@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="covert grades to GPA">
+        <meta name="keywords" content="HTML,CSS,JavaScript">
+        <meta charset="UTF-8">
+        <title>know your gpa</title>
+        <style type="text/css">
+                @import "bootstrap/scss/bootstrap";
+
+                $utilities: map-merge($utilities,
+                                ("cursor": (property: cursor,
+                                                class: cursor,
+                                                responsive: true,
+                                                values: auto pointer grab,
+                                        )));
+
+                body {
+                        width: 100%;
+                        height: 100vh;
+                        margin: auto;
+                        font-family: Tahoma;
+                        font-size: 16px;
+                        padding-top: 150px;
+                        padding-left: 50px;
+                        background-color: whitesmoke;
+                        align-items: center;
+                }
+
+                form {
+                        width: 60vw;
+                        max-width: 500px;
+                        margin: auto;
+                        height: auto;
+                        align-items: center;
+                }
+
+
+
+                section {
+                        align-items: centers;
+                }
+
+                img {
+                        border-bottom: solid;
+                        border-color: grey;
+                        border-width: 2px;
+                }
+
+                .header,
+                .heading {
+                        padding: 5%;
+                        color: #f00;
+                        font-weight: bold;
+                        font-size: 20px;
+                        text-align: center;
+                }
+
+                .get_inputs {
+                        padding: 5px 0;
+                        max-width: 500px;
+                        text-align: center;
+                        margin: auto;
+                        background-color: white;
+                        height: auto;
+                        align-items: center;
+                        border: 1px solid #000;
+                }
+
+                h4 {
+                        text-align: center;
+                }
+
+                table {
+                        padding: 5px;
+                        border: none;
+                }
+
+                tr {
+                        border: 1px solid #000;
+                }
+
+                .submit {
+                        align-items: center;
+                        text-align: center;
+                        margin: auto;
+                        padding: 20px;
+                        max-width: 30%;
+                        min-width: 300px;
+                        width: 60vw;
+                }
+
+                .AR_button {
+                        background: #008ECE;
+                        color: white;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        border: none;
+                        font-size: 16px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                        width: 100px;
+                }
+
+                .AR_button:hover {
+                        background-color: #000080;
+                }
+
+                .AR_buttons {
+                        background: #000080;
+                        color: white;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        border: none;
+                        font-size: 16px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                        width: 100px;
+                }
+
+                .AR_buttons:hover {
+                        background-color: #008ECE;
+                }
+
+                .gpa_result {
+                        padding: 20px 0 10px 0;
+                        text-align: center;
+                }
+
+                .note {
+                        margin: auto;
+                }
+
+                p {
+                        margin: auto;
+                }
+
+                b {
+                        color: blue;
+                }
+
+                a:link,
+                a:visited {
+                        color: white;
+                        text-decoration: none;
+                }
+        </style>
+</head>
+
+<body>
+        <header>
+                <nav>
+                        <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2"
+                                role="tablist"
+                                style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="true">Home</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">CSE</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">CSM</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">CSD</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">ECE</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">IT</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">EEE</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">MECHANICAL</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab"
+                                                type="button" role="tab" aria-selected="false">CIVIL</button>
+                                </li>
+                                
+                                
+                        </ul>
+                </nav>
+        </header>
+        <section>
+                <!-- getting grades of students -->
+                <div class="get_inputs">
+                        <form method="Post" action="/AR_20_CSM1_1.html">
+
+                                <img src="E:\Aitam Website\aitam logo.webp">
+                                <h4>Select Your Grades Subject Wise</h4>
+
+                                <!-- inputs in table -->
+                                <table border="1" align="center">
+                                        <!-- English -->
+                                        <tr>
+                                                <td>English</td>
+                                                <td>
+                                                        <select id="English">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+                                        <!-- Linear Algebra & Calculus -->
+                                        <tr>
+                                                <td>Linear Algebra & Calculus</td>
+                                                <td>
+                                                        <select id="Linear Algebra & Calculus">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+                                        <!-- Chemistry -->
+                                        <tr>
+                                                <td>Chemistry</td>
+                                                <td>
+                                                        <select id="Chemistry">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+                                        <!-- Programming for Problem Solving -->
+                                        <tr>
+                                                <td>Programming for Problem Solving</td>
+                                                <td>
+                                                        <select id="Programming for Problem Solving">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+                                        <!-- Engineering Graphics & Design -->
+                                        <tr>
+                                                <td>Engineering Graphics & Design</td>
+                                                <td>
+                                                        <select id="Engineering Graphics & Design">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+                                        <!-- Language Proficiency Lab -->
+                                        <tr>
+                                                <td>Language Proficiency Lab</td>
+                                                <td>
+                                                        <select id="Language Proficiency Lab">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+                                        <!-- Chemistry Lab -->
+                                        <tr>
+                                                <td>Chemistry Lab</td>
+                                                <td>
+                                                        <select id="Chemistry Lab">
+                                                                <option>Default</option>
+                                                                <option value="10">S</option>
+                                                                <option value="9">A</option>
+                                                                <option value="8">B</option>
+                                                                <option value="7">C</option>
+                                                                <option value="6">D</option>
+                                                                <option value="5">E</option>
+                                                        </select>
+                                                </td>
+                                        </tr>
+
+
+                                </table>
+
+                                <!-- submit -->
+                                <!-- gpa result -->
+                                <div class="gpa_result">
+                                        Your Sgpa is <span class="gpa"></span>.<br>
+                                        Your Percentage is <span class="Percentage"></span>
+                                </div>
+                                <!-- close gpa_result div -->
+
+                        </form>
+                        <div class="submit">
+                                <button onclick="result()" class="AR_buttons">Submit</button>
+                                <br><br>
+                                <button class="AR_button"><a href="AR_20br.html">Back</a></button>
+                                <button class="AR_button"><a href="Aitam_Home.html">Home</a></button>
+                        </div>
+                </div>
+        </section>
+
+
+
+        <script type="text/javascript">
+                let gpa = document.querySelector(".gpa");
+                let gpa_result = document.querySelector(".gpa_result");
+                let percentageDisplay = document.querySelector(".Percentage");
+
+                function printWithTwoDigits(result) {
+                        // Using toFixed to limit the number to two decimal places
+                        return result.toFixed(2);
+                }
+
+                function result() {
+                        gpa_result.style.display = "block";
+
+                        // subjects values or points
+                        let e = document.getElementById("English").value * 3;
+                        let m = document.getElementById("Linear Algebra & Calculus").value * 3;
+                        let c = document.getElementById("Chemistry").value * 3;
+                        let p = document.getElementById("Programming for Problem Solving").value * 4.5;
+                        let eg = document.getElementById("Engineering Graphics & Design").value * 3;
+                        let l = document.getElementById("Language Proficiency Lab").value * 1.5;
+                        let cl = document.getElementById("Chemistry Lab").value * 1.5;
+
+                        // final calculations
+                        let sum = e + m + c + p + eg + l + cl;
+                        let g = sum / 19.5;
+                        let percentage = (g - 0.75) * 10;
+
+                        // result
+                        gpa.innerHTML = printWithTwoDigits(g);
+                        percentageDisplay.innerHTML = printWithTwoDigits(percentage);
+                }
+        </script>
+</body>
+
+</html>
